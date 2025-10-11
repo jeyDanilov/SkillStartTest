@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -30,14 +31,28 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
 
     implementation(project(":domain"))
 
+
+    //Dagger
+    implementation("com.google.dagger:hilt-android:2.45")
+    kapt("com.google.dagger:hilt-compiler:2.57")
+
+
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4")
+
+    //Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
+
+    //AdapterDelegates
     implementation("com.hannesdorfmann:adapterdelegates4:4.3.2")
 
     implementation(libs.androidx.core.ktx)
