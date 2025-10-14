@@ -11,6 +11,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    // Инициализация экрана и настройка отступов для системных панелей
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,15 +24,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Обработка клика по вкладке "Главная"
+    fun onHomeClick(view: View) {}
 
-    fun onHomeClick(view: View){
+    // Обработка клика по вкладке "Избранное"
+    fun onFavoritesClick(view: View) {}
 
-    }
-
-    fun onFavoritesClick(view: View){
-    }
-
-    fun onAccountClick(view: View){
-
-    }
+    // Обработка клика по вкладке "Аккаунт"
+    fun onAccountClick(view: View) {}
 }

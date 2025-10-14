@@ -1,8 +1,11 @@
 package com.example.data.dataclass
 
+// Ответ с курсами
 data class CourseResponse(
     val courses: List<Course>
 )
+
+// Модель курса
 data class Course(
     val id: Int,
     val title: String,
@@ -13,4 +16,3 @@ data class Course(
     val hasLike: Boolean = false,
     val publishDate: String
 )
-

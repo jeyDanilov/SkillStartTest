@@ -11,13 +11,16 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+// ViewModel курсов
 @HiltViewModel
 class CourseViewModel @Inject constructor(
     private val repository: CourseRepository
 ) : ViewModel() {
+
     private val _courses = MutableStateFlow<List<Course>>(emptyList())
     val courses: StateFlow<List<Course>> = _courses
 
+    // Загрузка курсов при инициализации
     init {
         Log.d("CourseViewModel", "ViewModel создан")
         viewModelScope.launch {

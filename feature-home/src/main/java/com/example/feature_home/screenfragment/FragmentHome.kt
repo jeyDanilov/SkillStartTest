@@ -18,6 +18,7 @@ import com.example.feature_home.viewmodel.CourseViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+// Экран "Главная"
 @AndroidEntryPoint
 class FragmentHome : Fragment(R.layout.fragment_home) {
 
@@ -33,10 +34,11 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentHomeBinding.bind(view)
 
-
+        // Настройка RecyclerView
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        // Подписка на поток курсов
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.courses.collect { list ->
@@ -45,16 +47,15 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
                 }
             }
         }
+
+        // Обработка сортировки
         binding.imageFilter.setOnClickListener {
             isSortedDescending = !isSortedDescending
             updateList()
         }
-
-
-
     }
 
-
+    // Обновление списка с учётом сортировки
     private fun updateList() {
         val sorted = if (isSortedDescending) {
             originalList.sortedByDescending { it.publishDate }

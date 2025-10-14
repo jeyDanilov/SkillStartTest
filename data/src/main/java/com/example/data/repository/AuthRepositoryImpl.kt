@@ -1,17 +1,18 @@
 package com.example.data.repository
 
-import android.util.Log
-import com.example.data.dataclass.LoginRequest
+
 import com.example.data.dataclass.UserResponse
 import com.example.data.intarface.AuthApi
 import com.example.domain.dataclass.User
 import com.example.domain.contract.AuthRepository
 import javax.inject.Inject
 
+// Реализация AuthRepository
 class AuthRepositoryImpl @Inject constructor(
-private val api: AuthApi
+    private val api: AuthApi
 ) : AuthRepository {
 
+    // Авторизация пользователя
     override suspend fun login(email: String, password: String): Result<User> {
         return try {
             val response = api.login()
@@ -21,6 +22,7 @@ private val api: AuthApi
         }
     }
 
+    // Маппинг UserResponse в User
     private fun UserResponse.toDomain(): User = User(
         id = id.toString(),
         name = name,

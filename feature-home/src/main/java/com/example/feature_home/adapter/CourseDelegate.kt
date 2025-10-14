@@ -8,12 +8,14 @@ import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 
 
 
+// Список изображений для карточек
 private val images = listOf(
     R.drawable.imagecardviewone,
     R.drawable.imagecardviewtwo,
     R.drawable.imagecardviewthree
 )
 
+// Делегат адаптера для курса
 fun courseDelegate() = adapterDelegateViewBinding<Course, Course, ItemCourseBinding>(
     viewBinding = { inflater, parent ->
         ItemCourseBinding.inflate(inflater, parent, false)
@@ -30,6 +32,5 @@ fun courseDelegate() = adapterDelegateViewBinding<Course, Course, ItemCourseBind
 
         binding.textViewTitle.text = item.title
         binding.textViewPrice.text = item.price
-
     }
 }

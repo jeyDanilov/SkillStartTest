@@ -7,12 +7,14 @@ import com.example.data.room.FavoriteCourseDao
 import com.example.data.room.FavoriteCourseEntity
 import javax.inject.Inject
 
+
+// Репозиторий курсов
 class CourseRepository @Inject constructor(
     private val api: CourseApi,
-    private val favoriteDao: FavoriteCourseDao // ← DAO для избранного
+    private val favoriteDao: FavoriteCourseDao // DAO для избранного
 ) {
 
-    // ✅ Получение курсов с проставленным флагом hasLike
+    // Получение курсов с флагом hasLike
     suspend fun getCourses(): List<Course> {
         Log.d("CourseRepository", "Requesting courses from API")
         val allCourses = api.getCourses().courses
@@ -20,7 +22,7 @@ class CourseRepository @Inject constructor(
         return allCourses.map { it.copy(hasLike = it.id in favorites) }
     }
 
-    // ✅ Добавление или удаление из избранного
+    // Добавление или удаление из избранного
     suspend fun toggleFavorite(courseId: Int, isLiked: Boolean) {
         if (isLiked) {
             favoriteDao.add(FavoriteCourseEntity(courseId))
@@ -29,7 +31,7 @@ class CourseRepository @Inject constructor(
         }
     }
 
-    // ✅ Получение только избранных курсов
+    // Получение только избранных курсов
     suspend fun getFavorites(): List<Course> {
         return getCourses().filter { it.hasLike }
     }

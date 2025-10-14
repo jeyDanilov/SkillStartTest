@@ -16,11 +16,15 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+// Модуль DI для сетевых компонентов
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
+    // Базовый URL для API
     private const val BASE_URL = "https://jeydanilov.github.io/SkillStartData/"
+
+    // Перехватчик редиректов
     @Provides
     @Singleton
     fun provideRedirectInterceptor(): Interceptor = Interceptor { chain ->
@@ -43,6 +47,7 @@ object NetworkModule {
         chain.proceed(request)
     }
 
+    // HTTP-клиент с редиректами
     @Provides
     @Singleton
     fun provideOkHttpClient(redirectInterceptor: Interceptor): OkHttpClient =
@@ -50,6 +55,7 @@ object NetworkModule {
             .addInterceptor(redirectInterceptor)
             .build()
 
+    // Retrofit-инстанс
     @Provides
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit =
@@ -59,19 +65,23 @@ object NetworkModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
+    // API авторизации
     @Provides
     @Singleton
     fun provideAuthApi(retrofit: Retrofit): AuthApi =
         retrofit.create(AuthApi::class.java)
 
+    // API курсов
     @Provides
     @Singleton
     fun provideCourseApi(retrofit: Retrofit): CourseApi =
         retrofit.create(CourseApi::class.java)
 
+    // Репозиторий курсов
     @Provides
     @Singleton
-    fun provideCourseRepository(courseApi: CourseApi,favoriteDao: FavoriteCourseDao): CourseRepository =
-        CourseRepository(courseApi,favoriteDao)
-}
-
+    fun provideCourseRepository(
+        courseApi: CourseApi,
+        favoriteDao: FavoriteCourseDao
+    ): CourseRepository =
+        CourseRepository(courseApi, favoriteDao)}
