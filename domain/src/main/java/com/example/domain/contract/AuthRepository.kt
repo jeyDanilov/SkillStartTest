@@ -1,4 +1,4 @@
-package com.example.domain.`interface`
+package com.example.domain.contract
 
 import com.example.domain.dataclass.User
 

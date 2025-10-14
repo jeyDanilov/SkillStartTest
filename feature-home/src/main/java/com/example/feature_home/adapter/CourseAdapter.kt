@@ -1,4 +1,14 @@
 package com.example.feature_home.adapter
 
-class CourseAdapter {
+
+import com.example.data.dataclass.Course
+import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
+
+class CourseAdapter : ListDelegationAdapter<List<Course>>() {
+    init {
+        delegatesManager.addDelegate(courseDelegate())
+
+    }
+
+
 }

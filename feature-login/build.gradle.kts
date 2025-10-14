@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     id("org.jetbrains.kotlin.kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -43,14 +44,17 @@ dependencies {
 
 
     //Dagger
-    implementation("com.google.dagger:hilt-android:2.45")
-    kapt("com.google.dagger:hilt-compiler:2.57")
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-compiler:2.51")
 
+
+    //by viewModels
+    implementation("androidx.activity:activity-ktx:1.8.0")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4")
 
     //Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
 
     //AdapterDelegates
     implementation("com.hannesdorfmann:adapterdelegates4:4.3.2")

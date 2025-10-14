@@ -1,29 +1,28 @@
 package com.example.data.repository
 
-import android.R.attr.id
-import android.R.attr.name
+import android.util.Log
 import com.example.data.dataclass.LoginRequest
 import com.example.data.dataclass.UserResponse
 import com.example.data.intarface.AuthApi
 import com.example.domain.dataclass.User
-import com.example.domain.`interface`.AuthRepository
+import com.example.domain.contract.AuthRepository
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
-    private val api: AuthApi
+private val api: AuthApi
 ) : AuthRepository {
 
-    override suspend fun login(
-        email: String,
-        password: String
-    ): Result<User> {
+    override suspend fun login(email: String, password: String): Result<User> {
         return try {
-            val response = api.login(LoginRequest(email, password))
+            val response = api.login()
             Result.success(response.toDomain())
         } catch (e: Exception) {
             Result.failure(e)
         }
     }
 
-    fun UserResponse.toDomain(): User = User(id, name)
+    private fun UserResponse.toDomain(): User = User(
+        id = id.toString(),
+        name = name,
+    )
 }

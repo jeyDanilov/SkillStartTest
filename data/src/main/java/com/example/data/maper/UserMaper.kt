@@ -6,7 +6,7 @@ import com.example.domain.dataclass.User
 
 fun UserResponse.toDomain(): User {
     return User(
-        id = this.id,
-        name = this.name
+        id = this.id.toString(),
+        name = this.name,
     )
 }

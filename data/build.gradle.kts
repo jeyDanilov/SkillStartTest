@@ -1,7 +1,11 @@
+import org.gradle.kotlin.dsl.implementation
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    id("org.jetbrains.kotlin.kapt")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
+
 }
 
 android {
@@ -39,15 +43,27 @@ dependencies {
 
 
     //Retrofit
-    implementation("com.squareup.retrofit2:retrofit:3.0.0")
-    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     //Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
 
     //Dagger
-    implementation("com.google.dagger:hilt-android:2.57")
-    kapt("com.google.dagger:hilt-compiler:2.57")
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    implementation(libs.androidx.tracing.perfetto.handshake)
+    kapt("com.google.dagger:hilt-compiler:2.51.1")
+
+    // Основная библиотека Room
+    implementation("androidx.room:room-runtime:2.8.2")
+
+    // Компилятор аннотаций (нужен для @Dao, @Entity)
+    kapt("androidx.room:room-compiler:2.8.2")
+
+    // Kotlin Extensions
+    implementation("androidx.room:room-ktx:2.8.2")
+
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

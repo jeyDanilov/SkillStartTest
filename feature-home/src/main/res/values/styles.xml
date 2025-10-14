@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <resources>
+    <style name="CustomSearchViewThem" parent="Widget.AppCompat.SearchView">
+        <item name="android:editTextColor">#F2F2F3</item>
+        <item name="android:textColorHint">#7E7E81</item>
+    </style>
+    </resources>

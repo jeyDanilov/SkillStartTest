@@ -1,7 +1,7 @@
 package com.example.data.di
 
 import com.example.data.repository.AuthRepositoryImpl
-import com.example.domain.`interface`.AuthRepository
+import com.example.domain.contract.AuthRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

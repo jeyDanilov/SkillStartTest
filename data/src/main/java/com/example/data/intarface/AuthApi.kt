@@ -1,11 +1,9 @@
 package com.example.data.intarface
 
-import com.example.data.dataclass.LoginRequest
 import com.example.data.dataclass.UserResponse
-import retrofit2.http.Body
-import retrofit2.http.POST
+import retrofit2.http.GET
 
 interface AuthApi {
-    @POST("auth/login")
-    suspend fun login(@Body request: LoginRequest): UserResponse
+    @GET("auth/login.json")
+    suspend fun login(): UserResponse
 }
