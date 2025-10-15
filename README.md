@@ -32,8 +32,8 @@ The courses.json and login.json files are located in a separate public repositor
 -Adapter with delegates and Glide
 
 
-**Screenshots**
-<h3>Login screen.</h3>
-<img src="‎screenshots/login.png width="200"/>
-<h3>Home screen.</h3>
-<img src="‎screenshots/courses.png width="200"/>
+<h3>Login screen</h3>
+<img src="screenshots/login.png" width="300"/>
+
+<h3>Home screen</h3>
+<img src="screenshots/courses.png" width="300"/>
