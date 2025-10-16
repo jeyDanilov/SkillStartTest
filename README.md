@@ -29,7 +29,9 @@ The courses.json and login.json files are located in a separate public repositor
 - https://your-username.github.io/your-repo/login.json
 
 
+
 **Authorization**
+
 -Enter email and password
 
 -Email validation via Regex
@@ -37,6 +39,8 @@ The courses.json and login.json files are located in a separate public repositor
 -States: Idle / Loading / Success / Error
 
 -Transition to MainActivity on success
+
+
 
 **Courses**
 
