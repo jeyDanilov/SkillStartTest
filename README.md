@@ -31,6 +31,7 @@ The courses.json and login.json files are located in a separate public repositor
 
 
 **Authorization**
+
 -Enter email and password
 
 -Email validation via Regex
@@ -42,6 +43,7 @@ The courses.json and login.json files are located in a separate public repositor
 
 
 **Courses**
+
 -Download from mock repository
 
 -Sort by publication date
