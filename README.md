@@ -2,13 +2,21 @@
 
 Tech Stack:
 -Kotlin
+
 -MVVM + Clean Architecture
+
 -Hilt (DI)
+
 -Retrofit (Mock answers via GitHub Pages)
+
 -Room (Local favorites).Not yet fully implemented
+
 -ViewBinding
+
 -RecyclerView + AdapterDelegates
+
 -Glide
+
 -Coroutines + StateFlow
 
 
