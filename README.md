@@ -21,6 +21,7 @@ Tech Stack:
 
 
 **Retrofit is used to load courses, with a base URL pointing to GitHub Pages:**
+
 The courses.json and login.json files are located in a separate public repository and are available at this link:
 
 - https://your-username.github.io/your-repo/courses.json
@@ -30,13 +31,19 @@ The courses.json and login.json files are located in a separate public repositor
 
 **Authorization**
 -Enter email and password
+
 -Email validation via Regex
+
 -States: Idle / Loading / Success / Error
+
 -Transition to MainActivity on success
 
 **Courses**
+
 -Download from mock repository
+
 -Sort by publication date
+
 -Adapter with delegates and Glide
 
 
