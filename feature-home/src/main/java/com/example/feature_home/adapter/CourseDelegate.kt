@@ -1,7 +1,7 @@
 package com.example.feature_home.adapter
 
 import com.bumptech.glide.Glide
-import com.example.data.dataclass.Course
+import com.example.domain.dataclass.Course
 import com.example.feature_home.R
 import com.example.feature_home.databinding.ItemCourseBinding
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding

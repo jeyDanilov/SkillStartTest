@@ -1,16 +1,14 @@
 package com.example.feature_home.screenfragment
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.data.dataclass.Course
+import com.example.domain.dataclass.Course
 import com.example.feature_home.R
 import com.example.feature_home.adapter.CourseAdapter
 import com.example.feature_home.databinding.FragmentHomeBinding

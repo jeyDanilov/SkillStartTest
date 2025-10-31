@@ -2,7 +2,7 @@ package com.example.data.dataclass
 
 // Ответ с курсами
 data class CourseResponse(
-    val courses: List<Course>
+    val courses: List<CourseDto>
 )
 
 // Модель курса

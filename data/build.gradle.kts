@@ -52,6 +52,7 @@ dependencies {
     //Dagger
     implementation("com.google.dagger:hilt-android:2.51.1")
     implementation(libs.androidx.tracing.perfetto.handshake)
+    implementation(libs.androidx.room.ktx)
     kapt("com.google.dagger:hilt-compiler:2.51.1")
 
     // Основная библиотека Room

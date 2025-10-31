@@ -1,7 +1,7 @@
 package com.example.feature_home.adapter
 
 
-import com.example.data.dataclass.Course
+import com.example.domain.dataclass.Course
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 
 // Адаптер списка курсов

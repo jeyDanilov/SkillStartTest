@@ -1,4 +1,4 @@
-package com.example.data.maper
+package com.example.data.mapper
 
 import com.example.data.dataclass.UserResponse
 import com.example.domain.dataclass.User

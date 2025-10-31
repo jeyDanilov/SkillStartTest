@@ -10,15 +10,15 @@ import androidx.room.Query
 @Dao
 interface FavoriteCourseDao {
 
-    // Получить все избранные
     @Query("SELECT * FROM favorite_courses")
-    suspend fun getAll(): List<FavoriteCourseEntity>
+    suspend fun getFavorites(): List<FavoriteCourseEntity>
 
-    // Добавить в избранное
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun add(course: FavoriteCourseEntity)
 
-    // Удалить из избранного
     @Delete
     suspend fun remove(course: FavoriteCourseEntity)
+
+    @Query("SELECT EXISTS(SELECT 1 FROM favorite_courses WHERE id = :courseId)")
+    suspend fun isFavorite(courseId: Int): Boolean
 }

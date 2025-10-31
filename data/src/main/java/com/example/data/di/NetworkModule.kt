@@ -3,8 +3,9 @@ package com.example.data.di
 
 import com.example.data.intarface.AuthApi
 import com.example.data.intarface.CourseApi
-import com.example.data.repository.CourseRepository
+import com.example.data.repository.CoursesRepositoryImpl
 import com.example.data.room.FavoriteCourseDao
+import com.example.domain.contract.CourseRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -76,12 +77,13 @@ object NetworkModule {
     @Singleton
     fun provideCourseApi(retrofit: Retrofit): CourseApi =
         retrofit.create(CourseApi::class.java)
+}
 
-    // Репозиторий курсов
-    @Provides
-    @Singleton
-    fun provideCourseRepository(
-        courseApi: CourseApi,
-        favoriteDao: FavoriteCourseDao
-    ): CourseRepository =
-        CourseRepository(courseApi, favoriteDao)}
+//    // Репозиторий курсов
+//    @Provides
+//    @Singleton
+//    fun provideCourseRepository(
+//        courseApi: CourseApi,
+//        favoriteDao: FavoriteCourseDao
+//    ): CourseRepository =
+//        CoursesRepositoryImpl(courseApi, favoriteDao)}
