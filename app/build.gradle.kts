@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.example.skillstarttest"
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.skillstarttest"
-        minSdk = 36
-        targetSdk = 36
+        minSdk = 24
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -48,6 +48,9 @@ dependencies {
     implementation(project(":feature-login"))
     implementation(project(":feature-home"))
     implementation(project(":feature-navigation"))
+    implementation(project(":feature-favorites"))
+
+
 
 
 
@@ -55,8 +58,8 @@ dependencies {
     implementation("com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.0")
 
     //Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:2.9.5")
-    implementation("androidx.navigation:navigation-ui-ktx:2.9.5")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
 
     //Dagger
     implementation("com.google.dagger:hilt-android:2.51.1")

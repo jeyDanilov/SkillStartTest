@@ -24,13 +24,18 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private val adapter = CourseAdapter()
+    private lateinit var adapter: CourseAdapter
 
     private var isSortedDescending = false
+
     private var originalList: List<Course> = emptyList()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentHomeBinding.bind(view)
+
+        adapter = CourseAdapter { course ->
+            viewModel.onFavoritClick(course)
+        }
 
         // Настройка RecyclerView
         binding.recyclerView.adapter = adapter
@@ -51,6 +56,7 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
             isSortedDescending = !isSortedDescending
             updateList()
         }
+        binding.recyclerView.adapter = adapter
     }
 
     // Обновление списка с учётом сортировки

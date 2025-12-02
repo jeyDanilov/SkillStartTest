@@ -12,10 +12,10 @@ pluginManagement {
     }
 
     plugins {
-        id("com.android.application") version "8.1.0"
-        id("com.android.library") version "8.1.0"
-        id("org.jetbrains.kotlin.android") version "1.9.23"
-        id("org.jetbrains.kotlin.jvm") version "1.9.23"
+        id("com.android.application") version "8.2.2"
+        id("com.android.library") version "8.2.2"
+        id("org.jetbrains.kotlin.android") version "1.9.0"
+        id("org.jetbrains.kotlin.jvm") version "1.9.0"
     }
 }
 dependencyResolutionManagement {
@@ -23,6 +23,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
@@ -33,3 +34,4 @@ include(":domain")
 include(":feature-login")
 include(":feature-navigation")
 include(":feature-home")
+include(":feature-favorites")

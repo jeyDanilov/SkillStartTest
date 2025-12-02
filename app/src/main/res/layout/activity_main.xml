@@ -85,7 +85,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:onClick="onAccountClick"
             android:orientation="vertical">
 
             <ImageView
@@ -104,6 +103,4 @@
 
         </LinearLayout>
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

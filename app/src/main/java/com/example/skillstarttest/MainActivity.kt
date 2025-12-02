@@ -24,12 +24,22 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+
+    private val navController by lazy {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as androidx.navigation.fragment.NavHostFragment
+        navHostFragment.navController
+    }
+
     // Обработка клика по вкладке "Главная"
-    fun onHomeClick(view: View) {}
+    fun onHomeClick(view: View) {
+    navController.navigate(com.example.feature_navigation.R.id.nav_home)
+    }
 
     // Обработка клика по вкладке "Избранное"
-    fun onFavoritesClick(view: View) {}
+    fun onFavoritesClick(view: View) {
+    navController.navigate(com.example.feature_navigation.R.id.nav_favorites)
 
-    // Обработка клика по вкладке "Аккаунт"
-    fun onAccountClick(view: View) {}
+    }
 }

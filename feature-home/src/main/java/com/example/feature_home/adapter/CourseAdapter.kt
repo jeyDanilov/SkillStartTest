@@ -5,9 +5,10 @@ import com.example.domain.dataclass.Course
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 
 // Адаптер списка курсов
-class CourseAdapter : ListDelegationAdapter<List<Course>>() {
+class CourseAdapter(onFavoriteClick: (Course) -> Unit)
+    : ListDelegationAdapter<List<Course>>() {
     init {
-        delegatesManager.addDelegate(courseDelegate())
+        delegatesManager.addDelegate(courseDelegate(onFavoriteClick))
 
     }
 }

@@ -78,12 +78,3 @@ object NetworkModule {
     fun provideCourseApi(retrofit: Retrofit): CourseApi =
         retrofit.create(CourseApi::class.java)
 }
-
-//    // Репозиторий курсов
-//    @Provides
-//    @Singleton
-//    fun provideCourseRepository(
-//        courseApi: CourseApi,
-//        favoriteDao: FavoriteCourseDao
-//    ): CourseRepository =
-//        CoursesRepositoryImpl(courseApi, favoriteDao)}

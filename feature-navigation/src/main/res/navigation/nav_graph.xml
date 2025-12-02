@@ -9,6 +9,16 @@
         android:id="@+id/nav_home"
         android:name="com.example.feature_home.screenfragment.FragmentHome"
         tools:layout="@layout/fragment_home"
-        android:label="Главная"/>
+        android:label="Главная">
 
+        <action
+            android:id="@+id/action_nav_home_to_nav_favorites"
+            app:destination="@id/nav_favorites" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_favorites"
+        android:name="com.example.feature_favorites.viewmodel.favorites.ui.FavoriteFragment"
+        tools:layout="@layout/favorite_fragment"
+        android:label="Избранное" />
 </navigation>

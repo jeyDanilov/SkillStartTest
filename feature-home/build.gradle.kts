@@ -7,10 +7,10 @@ plugins {
 
 android {
     namespace = "com.example.feature_home"
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = 36
+        minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -49,8 +49,9 @@ dependencies {
     //by viewModels
     implementation("androidx.fragment:fragment-ktx:1.6.1")
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
+    //Coroutines
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
 
     //adapter delegate
     implementation("com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.0")

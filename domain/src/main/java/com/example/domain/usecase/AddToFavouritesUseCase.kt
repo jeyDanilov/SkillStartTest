@@ -1,4 +1,14 @@
 package com.example.domain.usecase
 
-class AddToFavouritesUseCase {
+import com.example.domain.contract.CourseRepository
+import com.example.domain.dataclass.Course
+import javax.inject.Inject
+
+class AddToFavouritesUseCase @Inject constructor(
+    private val repository: CourseRepository
+
+) {
+    suspend operator fun invoke(course: Course){
+        repository.addToFavorites(course)
+    }
 }

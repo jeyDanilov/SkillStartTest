@@ -5,10 +5,10 @@ plugins {
 
 android {
     namespace = "com.example.feature_navigation"
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = 36
+        minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -36,9 +36,10 @@ dependencies {
 
     implementation(project(":domain"))
     implementation(project(":feature-home"))
+    implementation(project(":feature-favorites"))
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
     implementation("com.hannesdorfmann:adapterdelegates4:4.3.2")
 
     implementation(libs.androidx.core.ktx)

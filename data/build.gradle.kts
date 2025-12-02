@@ -10,10 +10,10 @@ plugins {
 
 android {
     namespace = "com.example.data"
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = 36
+        minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -52,17 +52,17 @@ dependencies {
     //Dagger
     implementation("com.google.dagger:hilt-android:2.51.1")
     implementation(libs.androidx.tracing.perfetto.handshake)
-    implementation(libs.androidx.room.ktx)
+    
     kapt("com.google.dagger:hilt-compiler:2.51.1")
 
     // Основная библиотека Room
-    implementation("androidx.room:room-runtime:2.8.2")
+    implementation(libs.androidx.room.runtime)
 
     // Компилятор аннотаций (нужен для @Dao, @Entity)
-    kapt("androidx.room:room-compiler:2.8.2")
+    kapt(libs.androidx.room.compiler)
 
     // Kotlin Extensions
-    implementation("androidx.room:room-ktx:2.8.2")
+    implementation(libs.androidx.room.ktx)
 
 
 

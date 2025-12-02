@@ -2,6 +2,7 @@ package com.example.data.repository
 
 import com.example.data.intarface.CourseApi
 import com.example.data.mapper.toDomain
+import com.example.data.mapper.toEntity
 import com.example.data.room.FavoriteCourseDao
 import com.example.data.room.FavoriteCourseEntity
 import com.example.domain.contract.CourseRepository
@@ -42,5 +43,17 @@ class CoursesRepositoryImpl @Inject constructor(
 
     override suspend fun getFavorites(): List<Course> {
         return dao.getFavorites().map { it.toDomain() }
+    }
+
+    override suspend fun addToFavorites(course: Course) {
+        return dao.add(course.toEntity())
+    }
+
+    override suspend fun removeFromFavorites(course: Course) {
+        return dao.remove(course.toEntity())
+    }
+
+    override suspend fun isFavorite(courseId: Int): Boolean {
+        return dao.isFavorite(courseId)
     }
 }

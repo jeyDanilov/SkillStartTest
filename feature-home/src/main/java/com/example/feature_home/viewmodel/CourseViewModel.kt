@@ -34,4 +34,17 @@ class CourseViewModel @Inject constructor(
             }
         }
     }
+
+    fun onFavoritClick(course: Course) {
+        viewModelScope.launch {
+            if (repository.isFavorite(course.id)) {
+                repository.removeFromFavorites(course)
+            } else {
+                repository.addToFavorites(course)
+            }
+
+            // перезагружаем список (чтобы обновилось поле isFavorite)
+            _courses.value = repository.getCourses()
+        }
+    }
 }
