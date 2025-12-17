@@ -1,11 +1,11 @@
 package com.example.data.dataclass
 
-// Ответ с курсами
+// Response course.
 data class CourseResponse(
     val courses: List<CourseDto>
 )
 
-// Модель курса
+// Model course.
 data class Course(
     val id: Int,
     val title: String,

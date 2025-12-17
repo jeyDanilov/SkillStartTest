@@ -10,17 +10,18 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-// Модуль DI для репозиториев
+// Di module for repository.
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {
 
-    // Привязка реализации AuthRepository
+    // Bind implementation of AuthRepository.
     @Binds
     abstract fun bindAuthRepository(
         impl: AuthRepositoryImpl
     ): AuthRepository
 
+    //Bind implementation of CoursesRepository.
     @Binds
     @Singleton
     abstract fun bindCoursesRepository(

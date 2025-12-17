@@ -17,15 +17,15 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-// Модуль DI для сетевых компонентов
+// Dependency injection module for network components
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    // Базовый URL для API
+    // Base URL for API.
     private const val BASE_URL = "https://jeydanilov.github.io/SkillStartData/"
 
-    // Перехватчик редиректов
+    // Redirect interceptor.
     @Provides
     @Singleton
     fun provideRedirectInterceptor(): Interceptor = Interceptor { chain ->
@@ -48,7 +48,7 @@ object NetworkModule {
         chain.proceed(request)
     }
 
-    // HTTP-клиент с редиректами
+    // HTTP-client with redirect support.
     @Provides
     @Singleton
     fun provideOkHttpClient(redirectInterceptor: Interceptor): OkHttpClient =
@@ -56,7 +56,7 @@ object NetworkModule {
             .addInterceptor(redirectInterceptor)
             .build()
 
-    // Retrofit-инстанс
+    // Retrofit-instance.
     @Provides
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit =
@@ -66,13 +66,13 @@ object NetworkModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-    // API авторизации
+    // Authorization API.
     @Provides
     @Singleton
     fun provideAuthApi(retrofit: Retrofit): AuthApi =
         retrofit.create(AuthApi::class.java)
 
-    // API курсов
+    // Courses API.
     @Provides
     @Singleton
     fun provideCourseApi(retrofit: Retrofit): CourseApi =

@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-// ViewModel авторизации
+// ViewModel for authorization.
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val loginUserCase: LoginUserCase
@@ -21,14 +21,14 @@ class LoginViewModel @Inject constructor(
     private val _loginState = MutableStateFlow<LoginState>(LoginState.Idle)
     val loginState: StateFlow<LoginState> = _loginState
 
-    // Проверка валидности ввода
+    // Validate input fields for login.
     fun onInputChanged(email: String, password: String) {
         val isEmailValid = email.matches(Regex("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"))
         val isPasswordValid = password.isNotBlank()
         _isLoginEnabled.value = isEmailValid && isPasswordValid
     }
 
-    // Запуск авторизации
+    // Perform login process.
     fun login(email: String, password: String) {
         viewModelScope.launch {
             _loginState.value = LoginState.Loading

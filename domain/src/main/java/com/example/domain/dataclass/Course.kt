@@ -5,6 +5,7 @@ data class Course(
     val title: String,
     val description: String,
     val publishDate: String,
+    val imageRes: Int? = null,
     val price: String,
     val isFavorite: Boolean = false
 )

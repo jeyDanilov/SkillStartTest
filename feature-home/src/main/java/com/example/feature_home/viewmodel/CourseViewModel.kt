@@ -11,17 +11,19 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-// ViewModel курсов
+// Manages list course and favorites.
 @HiltViewModel
 class CourseViewModel @Inject constructor(
     private val repository: CourseRepository
 ) : ViewModel() {
 
+    //Backing StateFlow holding list of courses
     private val _courses = MutableStateFlow<List<Course>>(emptyList())
+    //Public immutable StateFlow exposed to UI.
     val courses: StateFlow<List<Course>> = _courses
 
 
-    // Загрузка курсов при инициализации
+    // Load courses when ViewModel is created.
     init {
         Log.d("CourseViewModel", "ViewModel создан")
         viewModelScope.launch {
@@ -35,6 +37,7 @@ class CourseViewModel @Inject constructor(
         }
     }
 
+    //Toggle favorite state.
     fun onFavoritClick(course: Course) {
         viewModelScope.launch {
             if (repository.isFavorite(course.id)) {

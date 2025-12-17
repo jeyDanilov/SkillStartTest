@@ -2,7 +2,7 @@ package com.example.feature_login.viewmodel
 
 import com.example.domain.dataclass.User
 
-// Состояния авторизации
+// Authentication state.
 sealed class LoginState {
     object Idle : LoginState()
     object Loading : LoginState()

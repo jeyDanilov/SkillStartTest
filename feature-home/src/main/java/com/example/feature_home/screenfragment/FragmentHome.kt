@@ -16,7 +16,7 @@ import com.example.feature_home.viewmodel.CourseViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-// Экран "Главная"
+// Screen "Home"
 @AndroidEntryPoint
 class FragmentHome : Fragment(R.layout.fragment_home) {
 
@@ -31,17 +31,19 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
     private var originalList: List<Course> = emptyList()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        //Initialization binding.
         _binding = FragmentHomeBinding.bind(view)
 
+        //Initialization adapter with click listener for favorites.
         adapter = CourseAdapter { course ->
             viewModel.onFavoritClick(course)
         }
 
-        // Настройка RecyclerView
+        // Setup RecyclerView with adapter and LayoutManager.
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        // Подписка на поток курсов
+        // Collect flow of course fron ViewModel.
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.courses.collect { list ->
@@ -51,7 +53,7 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
             }
         }
 
-        // Обработка сортировки
+        // Handle sorting toggle on filter icon click
         binding.imageFilter.setOnClickListener {
             isSortedDescending = !isSortedDescending
             updateList()
@@ -59,7 +61,7 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
         binding.recyclerView.adapter = adapter
     }
 
-    // Обновление списка с учётом сортировки
+    // Update list with sorting applied.
     private fun updateList() {
         val sorted = if (isSortedDescending) {
             originalList.sortedByDescending { it.publishDate }

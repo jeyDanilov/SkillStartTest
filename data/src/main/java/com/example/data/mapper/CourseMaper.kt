@@ -5,6 +5,7 @@ import com.example.data.dataclass.CourseDto
 import com.example.data.room.FavoriteCourseEntity
 import com.example.domain.dataclass.Course as DomainCourse
 
+//Convert CourseDto to DomainCourse.
 fun CourseDto.toDomain(): DomainCourse = DomainCourse(
     id = this.id,
     title = this.title ?: "",
@@ -14,6 +15,7 @@ fun CourseDto.toDomain(): DomainCourse = DomainCourse(
     isFavorite = false
 )
 
+//Convert FavoriteCourseEntity to DomainCourse.
 fun FavoriteCourseEntity.toDomain(): DomainCourse = DomainCourse(
     id = this.id,
     title = this.title ?: "",
@@ -23,6 +25,7 @@ fun FavoriteCourseEntity.toDomain(): DomainCourse = DomainCourse(
     isFavorite = true
 )
 
+//Convert DomainCourse back to FavoriteCourseEntity.
 fun DomainCourse.toEntity(): FavoriteCourseEntity = FavoriteCourseEntity(
     id = this.id,
     title = this.title,

@@ -11,12 +11,12 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-// Модуль DI для Room
+// Modul DI for room.
 @Module
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
 
-    // Провайдер базы данных
+    // Provides database.
     @Provides
     @Singleton
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
@@ -27,7 +27,7 @@ object DatabaseModule {
         ).build()
     }
 
-    // Провайдер DAO для избранного
+    // Provides Dao for Favorite.
     @Provides
     @Singleton
     fun provideFavoriteCourseDao(appDatabase: AppDatabase): FavoriteCourseDao {

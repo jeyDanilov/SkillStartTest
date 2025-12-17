@@ -12,7 +12,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    // Инициализация экрана и настройка отступов для системных панелей
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -25,19 +24,19 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
+    // Initialize NavController from NavHostFragment.
     private val navController by lazy {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as androidx.navigation.fragment.NavHostFragment
         navHostFragment.navController
     }
 
-    // Обработка клика по вкладке "Главная"
+    // Handle click on "Home" tab
     fun onHomeClick(view: View) {
     navController.navigate(com.example.feature_navigation.R.id.nav_home)
     }
 
-    // Обработка клика по вкладке "Избранное"
+   // Handle click on "Favorites" tab
     fun onFavoritesClick(view: View) {
     navController.navigate(com.example.feature_navigation.R.id.nav_favorites)
 

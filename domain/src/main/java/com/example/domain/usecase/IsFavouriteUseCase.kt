@@ -3,6 +3,7 @@ package com.example.domain.usecase
 import com.example.domain.contract.CourseRepository
 import javax.inject.Inject
 
+//Checks if a course is marked as favorites.
 class IsFavouriteUseCase @Inject constructor(
     private val repository: CourseRepository
 ) {

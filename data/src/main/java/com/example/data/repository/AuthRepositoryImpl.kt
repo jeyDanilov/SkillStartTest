@@ -7,12 +7,12 @@ import com.example.domain.dataclass.User
 import com.example.domain.contract.AuthRepository
 import javax.inject.Inject
 
-// Реализация AuthRepository
+// Implementation AuthRepository.
 class AuthRepositoryImpl @Inject constructor(
     private val api: AuthApi
 ) : AuthRepository {
 
-    // Авторизация пользователя
+    // Authorization User.
     override suspend fun login(email: String, password: String): Result<User> {
         return try {
             val response = api.login()
@@ -22,7 +22,7 @@ class AuthRepositoryImpl @Inject constructor(
         }
     }
 
-    // Маппинг UserResponse в User
+    // Mapper UserResponse in the User.
     private fun UserResponse.toDomain(): User = User(
         id = id.toString(),
         name = name,

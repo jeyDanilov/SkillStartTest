@@ -5,7 +5,7 @@ import com.example.domain.dataclass.User
 import javax.inject.Inject
 
 
-// Use-case авторизации
+//Handles authorization.
 class LoginUserCase @Inject constructor(
     private val authRepository: AuthRepository
 ) {

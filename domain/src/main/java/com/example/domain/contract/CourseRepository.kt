@@ -2,6 +2,7 @@ package com.example.domain.contract
 
 import com.example.domain.dataclass.Course
 
+//Repository interface - defines contract for course data operation.
 interface CourseRepository {
     suspend fun getCourses(): List<Course>
     suspend fun toggleFavorite(courseId: Int, isLiked: Boolean)
@@ -13,5 +14,3 @@ interface CourseRepository {
     suspend fun isFavorite(courseId: Int): Boolean
 
 }
-
-

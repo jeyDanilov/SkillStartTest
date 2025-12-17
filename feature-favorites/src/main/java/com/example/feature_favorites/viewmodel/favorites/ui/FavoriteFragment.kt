@@ -14,9 +14,11 @@ import com.example.feature_favorites.viewmodel.favorites.ui.adapter.FavoritesAda
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+//Displays list of favorite courses.
 @AndroidEntryPoint
 class FavoriteFragment : Fragment(R.layout.favorite_fragment) {
 
+    //ViewModel injected via Hilt.
     private val viewModel: FavoritesViewModel by viewModels()
     private lateinit var adapter: FavoritesAdapter
 
@@ -24,20 +26,13 @@ class FavoriteFragment : Fragment(R.layout.favorite_fragment) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FavoriteFragmentBinding.bind(view)
 
-
+        //Initialize adapter and set up RecyclerView.
         adapter = FavoritesAdapter()
-        // Обязательно назначаем LayoutManager
         binding.recyclerViewFavorites.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewFavorites.adapter = adapter
 
-       viewLifecycleOwner.lifecycleScope.launch {
-           viewModel.favorites.collect { list ->
-               adapter.items = list
-               adapter.notifyDataSetChanged()
-           }
-       }
 
-        // collect flow of favorites
+        //Collect Flow of favorites from ViewModel.
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.favorites.collect { list ->
                 adapter.setData(list)

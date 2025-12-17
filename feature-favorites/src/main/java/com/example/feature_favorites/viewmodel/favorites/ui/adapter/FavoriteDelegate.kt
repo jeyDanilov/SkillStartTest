@@ -7,11 +7,14 @@ import com.example.feature_home.R
 import com.example.feature_home.databinding.ItemCourseBinding
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 
+//List of drawable resoruces for course image.
 private val images = listOf(
     R.drawable.imagecardviewone,
     R.drawable.imagecardviewtwo,
     R.drawable.imagecardviewthree
 )
+
+//Delegation function for binding course items to RecyclerView.
 fun favoriteDelegate() =
     adapterDelegateViewBinding<Course, Course, ItemCourseBinding>(
         { inflater, parent -> ItemCourseBinding.inflate(inflater, parent, false) }

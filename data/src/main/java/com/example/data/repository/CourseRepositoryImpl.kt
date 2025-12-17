@@ -14,15 +14,18 @@ class CoursesRepositoryImpl @Inject constructor(
     private val dao: FavoriteCourseDao
 ) : CourseRepository {
 
+    //Fetch courses from API and mark favorites based on local database.
     override suspend fun getCourses(): List<Course> {
         val apiCourses = api.getCourses().courses
         val favorites = dao.getFavorites().map { it.id }.toSet()
 
         return apiCourses.map { dto ->
+            //Convert DTO to Domain and set isFavorite if course exists in local favorites.
             dto.toDomain().copy(isFavorite = dto.id in favorites)
         }
     }
 
+    //Toggle favorite status for a course.(add,remove from local database)
     override suspend fun toggleFavorite(courseId: Int, isLiked: Boolean) {
         val apiCourses = api.getCourses().courses
         val dto = apiCourses.find { it.id == courseId }

@@ -5,7 +5,7 @@ import com.example.domain.dataclass.Course
 import javax.inject.Inject
 import kotlin.collections.sortedByDescending
 
-
+//Handles retrieving courses.
 class GetCoursesUseCase @Inject constructor(
     private val repository: CourseRepository
 ) {

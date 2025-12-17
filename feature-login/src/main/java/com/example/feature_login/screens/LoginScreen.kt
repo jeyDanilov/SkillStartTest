@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlin.jvm.java
 
 
-// Экран авторизации
+// Screen authorization.
 @AndroidEntryPoint
 class LoginScreen : AppCompatActivity() {
 
@@ -27,7 +27,7 @@ class LoginScreen : AppCompatActivity() {
         binding = LoginScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Открытие соцсетей
+        // login through social networks.
         binding.buttonVk.setOnClickListener {
             openBrowser("https://vk.com/")
         }
@@ -35,7 +35,7 @@ class LoginScreen : AppCompatActivity() {
             openBrowser("https://ok.ru/")
         }
 
-        // Кнопка входа
+        // Button login.
         binding.buttonLogin.setOnClickListener {
             viewModel.login(
                 email = binding.emailEditText.text.toString(),
@@ -43,14 +43,14 @@ class LoginScreen : AppCompatActivity() {
             )
         }
 
-        // Активация кнопки входа
+        //Activation button login.
         lifecycleScope.launchWhenStarted {
             viewModel.isLoginEnabled.collect { enabled ->
                 binding.buttonLogin.isEnabled = enabled
             }
         }
 
-        // Отслеживание ввода
+        // Track input changes for email and password.
         binding.emailEditText.doAfterTextChanged {
             viewModel.onInputChanged(
                 email = binding.emailEditText.text.toString(),
@@ -64,7 +64,7 @@ class LoginScreen : AppCompatActivity() {
             )
         }
 
-        // Обработка состояния авторизации
+        // Handle login state.
         lifecycleScope.launchWhenStarted {
             viewModel.loginState.collect { state ->
                 when (state) {
@@ -91,7 +91,7 @@ class LoginScreen : AppCompatActivity() {
         }
     }
 
-    // Открытие ссылки в браузере
+    // Open external link in browser.
     private fun openBrowser(url: String) {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         startActivity(intent)

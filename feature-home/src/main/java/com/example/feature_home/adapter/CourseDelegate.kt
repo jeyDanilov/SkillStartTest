@@ -8,14 +8,14 @@ import com.example.feature_home.databinding.ItemCourseBinding
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 
 
-// Список изображений для карточек
+// Images list for course.
 private val images = listOf(
     R.drawable.imagecardviewone,
     R.drawable.imagecardviewtwo,
     R.drawable.imagecardviewthree
 )
 
-// Делегат адаптера для курса
+// Delegate adapter for course.
 fun courseDelegate(onFavoriteClick: (Course) -> Unit) =
     adapterDelegateViewBinding<Course, Course, ItemCourseBinding>(
         viewBinding = { inflater, parent ->
