@@ -36,6 +36,7 @@ class CoursesRepositoryImpl @Inject constructor(
                 title = it.title,
                 description = it.description,
                 price = it.price,
+                imageRes = it.imageRes,
                 publishDate = it.publishDate
             )
 

@@ -6,8 +6,9 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 // DB room.
-@Database(entities = [FavoriteCourseEntity::class], version = 1)
+@Database(entities = [FavoriteCourseEntity::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
+
 
     // DAO for favorites.
     abstract fun favoriteDao(): FavoriteCourseDao
@@ -22,7 +23,8 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "app_database"
-                ).build().also { INSTANCE = it }
+                )   .fallbackToDestructiveMigration()
+                    .build().also { INSTANCE = it }
             }
         }
     }

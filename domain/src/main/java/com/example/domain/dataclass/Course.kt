@@ -1,5 +1,6 @@
 package com.example.domain.dataclass
 
+//Data class for course.
 data class Course(
     val id: Int,
     val title: String,

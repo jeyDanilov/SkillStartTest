@@ -12,6 +12,7 @@ fun CourseDto.toDomain(): DomainCourse = DomainCourse(
     description = this.description ?: "",
     publishDate = this.publishDate ?: "",
     price = this.price ?: "",
+    imageRes = id % 3,
     isFavorite = false
 )
 
@@ -22,6 +23,7 @@ fun FavoriteCourseEntity.toDomain(): DomainCourse = DomainCourse(
     description = this.description ?: "",
     publishDate = this.publishDate ?: "",
     price = this.price ?: "",
+    imageRes = imageRes,
     isFavorite = true
 )
 
@@ -31,5 +33,6 @@ fun DomainCourse.toEntity(): FavoriteCourseEntity = FavoriteCourseEntity(
     title = this.title,
     description = this.description,
     publishDate = this.publishDate,
+    imageRes = imageRes,
     price = this.price
 )

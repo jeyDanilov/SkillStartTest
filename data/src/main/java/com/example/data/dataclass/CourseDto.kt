@@ -6,5 +6,6 @@ data class CourseDto(
     val title: String,
     val description: String,
     val price: String,
+    val imageRes: Int,
     val publishDate: String,
 )

@@ -11,4 +11,5 @@ data class FavoriteCourseEntity(
     val description: String,
     val price: String,
     val publishDate: String,
+    val imageRes: Int?
 )

@@ -24,7 +24,8 @@ object DatabaseModule {
             context,
             AppDatabase::class.java,
             "skillstart-db"
-        ).build()
+        )   .fallbackToDestructiveMigration()
+            .build()
     }
 
     // Provides Dao for Favorite.
